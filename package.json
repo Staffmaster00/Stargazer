@@ -1,27 +1,27 @@
 {
   "name": "stargazer",
   "version": "0.1.0",
-  "description": "Allows users to share photos of space locally", 
+  "description": "Allows users to share photos of space locally",
   "license": "ISC",
-  "author": "Sam Staff",  
+  "author": "Sam Staff",
   "keywords": [],
-  "main": "index.js",  
+  "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },  
+  },
   "dependencies": {
-    "body-parser": "^1.18.2", 
-    "bcrypt-nodejs": "0.0.3",  
+    "body-parser": "^1.18.2",
+    "bcrypt-nodejs": "0.0.3",
     "method-override": "^2.3.10",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0",  
+    "passport-local": "^1.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.1",
     "express-flash": "0.0.2",
-    "express-session": "^1.15.6",    
-    "angular": "^1.6.5",
-    "angular-route": "^1.6.5",
+    "express-session": "^1.15.6",
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
     "firebase": "^4.1.5",
     "jquery": "^3.2.1",
     "sequelize": "^4.13.5",
@@ -33,6 +33,9 @@
     "grunt-contrib-watch": "^0.6.1",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
-    "matchdep": "^0.3.0"   
+    "matchdep": "^0.3.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.8.1"
   }
 }

@@ -20,7 +20,7 @@ app.controller("UserController", function($scope, $window, UserFactory) {
     UserFactory.loginUser($scope.account)
     .then( (userData) => {
       console.log("userData", userData);
-      $window.location.href = '#!/list.html';
+      $window.location.href = '#!/list';
     });
   };
 });

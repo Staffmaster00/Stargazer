@@ -45,3 +45,4 @@ https://nodejs.org/en/docs/
 Going hand in hand with Nodejs is npm. This package manager allows us to install the needed third party support that empowers modern applications. You can use ```npm -v``` to check if you have it installed otherwise run ```npm install npm@latest -g``` to update to the latest version. While npm installs with node sometimes npm has a newer version than the one that installs with node.
 
 ## # Stargazer
+

@@ -1,0 +1,7 @@
+html { 
+  background: url(https://api.nasa.gov/planetary/apod?api_key=uoHw1X20fT2GT9t4QdqiwmkrVHi2A48R8VAKzG47) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
