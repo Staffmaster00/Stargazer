@@ -1,5 +1,6 @@
 'use strict';
 // appropriated from this demonstration https://www.youtube.com/watch?v=vLHgpOG1cW4
+//https://www.npmjs.com/package/exif allows you to get photo data
 app.directive('fileModel', ['$parse', function($parse){
     return {
         restrict: 'A',
