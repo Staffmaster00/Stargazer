@@ -4,7 +4,8 @@ app.factory("UserFactory", function($q, $http, FBURL, FBCreds) {
 
     var config = {
         apiKey: FBCreds.key,
-        authDomain: FBCreds.authDomain
+        authDomain: FBCreds.authDomain,
+        storageBucket: FBCreds.storageBucket
     };
 
     firebase.initializeApp(config);

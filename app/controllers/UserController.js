@@ -1,6 +1,10 @@
 'use strict';
-
-app.controller("UserController", function($scope, $window, UserFactory) {
+//Use scope to create a picture of the day for the login page.
+app.controller("UserController", function($scope, $window, UserFactory, APIFactory) { 
+  APIFactory.getPOD()
+  .then((url)=>{
+    $scope.bg = url;
+  });
 
   $scope.account = {
     email: "",
@@ -8,10 +12,8 @@ app.controller("UserController", function($scope, $window, UserFactory) {
   };
 
   $scope.register = () => {
-    console.log("Register clicked.");
     UserFactory.createUser($scope.account)
     .then( (userData) => {
-      console.log("User Registered.", userData);
       $scope.login();
     });
   };
@@ -19,8 +21,7 @@ app.controller("UserController", function($scope, $window, UserFactory) {
   $scope.login = () => {
     UserFactory.loginUser($scope.account)
     .then( (userData) => {
-      console.log("userData", userData);
-      $window.location.href = '#!/list.html';
+      $window.location.href = '#!/list';
     });
   };
 });
