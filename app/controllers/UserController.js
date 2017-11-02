@@ -3,9 +3,7 @@
 app.controller("UserController", function($scope, $window, UserFactory, APIFactory) { 
   APIFactory.getPOD()
   .then((url)=>{
-    console.log(`url`, url);
     $scope.bg = url;
-    console.log(`scope`, $scope.bg);
   });
 
   $scope.account = {
@@ -14,10 +12,8 @@ app.controller("UserController", function($scope, $window, UserFactory, APIFacto
   };
 
   $scope.register = () => {
-    console.log("Register clicked.");
     UserFactory.createUser($scope.account)
     .then( (userData) => {
-      console.log("User Registered.", userData);
       $scope.login();
     });
   };
@@ -25,7 +21,6 @@ app.controller("UserController", function($scope, $window, UserFactory, APIFacto
   $scope.login = () => {
     UserFactory.loginUser($scope.account)
     .then( (userData) => {
-      console.log("userData", userData);
       $window.location.href = '#!/list';
     });
   };

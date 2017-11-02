@@ -1,7 +1,30 @@
-html { 
-  background: url(https://api.nasa.gov/planetary/apod?api_key=uoHw1X20fT2GT9t4QdqiwmkrVHi2A48R8VAKzG47) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.user-form {
+  position: absolute;
+}
+.jumbotron {
+  z-index: 100;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.pic {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	z-index: 1;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
 }

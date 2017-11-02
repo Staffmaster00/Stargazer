@@ -2,8 +2,14 @@
 //TODO: Allow user to search for their location
 
 
-app.controller("ListController", function($scope, $window, UserFactory) {
-  $scope.toUpload = () => {
+app.controller("ListController", function($rootScope, $scope, $window, FBFactory) {
+  $rootScope.toUpload = () => {
     $window.location.href = '#!/upload';
+  }
+
+  $scope.displayList = () => {
+    console.log(`displayList runs`);
+    FBFactory.getList()
+    // .then(()=>{});
   }
 });

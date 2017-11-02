@@ -10,7 +10,6 @@ let getPOD = () => {
         return $q((resolve, reject) => {
             $http.get(`https://api.nasa.gov/planetary/apod?api_key=${access}`)
                 .then((result) => {
-                    console.log("result", result.data.url);
                     resolve(result.data.url);
                 })
                 .catch((err) => {

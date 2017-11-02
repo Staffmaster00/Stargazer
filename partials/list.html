@@ -1,7 +1,8 @@
-<div ng-include="partials/nav"></div>
+<div ng-include src="'partials/nav.html'"></div>
 <!-- help with nav -->
-<!-- TODO: Upload Photo -->
-<div>
-  <button class="btn-default" ng-click="toUpload()">Upload your own Photo!</button>
+<!-- TODO: recieve Photo -->
+  <div class="container">
+    <button class="btn-default" ng-click="toUpload()">Upload your own Photo!</button>
+    <button class="btn-default" ng-click="displayList()">Browse your photos!</button>
   </div>
 </div>

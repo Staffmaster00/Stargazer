@@ -1,10 +1,11 @@
 "use strict";
 //https://www.npmjs.com/package/exif allows you to get photo data
+
 let app = angular.module("app", ["ngRoute"])
     .constant("FBURL", "https://stargazer-b6f53.firebaseio.com");
 app.config(($routeProvider) => {
     $routeProvider
-        .when('/', {
+        .when('/login', {
             templateUrl: 'partials/login',
             controller: 'UserController'
         })
@@ -16,5 +17,5 @@ app.config(($routeProvider) => {
             templateUrl: 'partials/upload',
             controller: 'UploadController'
         })
-        .otherwise('/');
+        .otherwise('/login');
 });
