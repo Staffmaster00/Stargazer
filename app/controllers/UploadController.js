@@ -1,23 +1,26 @@
 'use strict';
 //project factory = image upload.
-app.controller("UploadController", function($scope, $window, FBFactory, FBCreds) {
-  
-  // Create a Firebase Storage reference
+app.controller("UploadController", function($rootScope, $scope, $window, FBCreds, MongoFactory, UserFactory) {
+  //take url, push it to an object or array you then save to mongo and use again later to display
+  //for each user, may have to drop the array afterward?
+  //Create a Firebase Storage reference
+  //need currentUser id
   var storage = firebase.storage();
   var storageRef = storage.ref();
-  // console.log(`storageref`, storageRef);
   var filesRef = storageRef.child('files');
-  
+  let downloadURL = null;
   $scope.uploadFile = function(file) {
-  // console.log("Let's upload a file!");
-  // console.log($scope.file);
-  return storageRef.child(file.name).put(file)
+    return storageRef.child(file.name).put(file)
     .then( (data) => {
-      // console.log(`data`, data);
-      var downloadURL = data.downloadURL;
-      // console.log(downloadURL)
+      // let photoArray = [];     
+      downloadURL = data.downloadURL;
+      let currentUserId = UserFactory.getUser()
+      // console.log(`downloadurl`, downloadURL);
+      // photoArray.push(downloadURL);
+      // $rootScope.photoList = photoArray;
       //you will get url of snapshot
+      MongoFactory.postPhotoObj(data.downloadURL, currentUserId)
     });
-  }
+  };
 })  
     

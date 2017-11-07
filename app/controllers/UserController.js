@@ -1,6 +1,6 @@
 'use strict';
 //Use scope to create a picture of the day for the login page.
-app.controller("UserController", function($scope, $window, UserFactory, APIFactory) { 
+app.controller("UserController", function($rootScope, $scope, $window, UserFactory, APIFactory) { 
   APIFactory.getPOD()
   .then((url)=>{
     $scope.bg = url;
@@ -24,4 +24,11 @@ app.controller("UserController", function($scope, $window, UserFactory, APIFacto
       $window.location.href = '#!/list';
     });
   };
+
+  $rootScope.logout = () => {
+    UserFactory.logoutUser()
+    .then ( (data) => {
+      $window.location.href = '#!/login';
+    })
+  }
 });

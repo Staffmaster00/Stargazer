@@ -46,3 +46,37 @@ Going hand in hand with Nodejs is npm. This package manager allows us to install
 
 ## # Stargazer
 
+DOM
+\/
+btn(see pictures)
+onclick img(src="fbUrl")
+************************
+Controller(picFactory)
+getPics(){
+  picFactory.getAllPics().then(pics){
+    $scope.pics=pics
+  }
+}
+************************
+Factory($http, ....)
+getAllPics(){
+  $http.get({
+    url: localhost:8080/pics
+  })
+  .then(pics){
+    resolve(pics)
+  }
+}
+************************
+Node localhost8080
+get('/pics', fetchPics)
+************************
+Node Controller
+require(pictureModel)
+fetchPics(){
+  db.picture.findAll().
+  then res.json(picture)
+}
+************************
+Model
+Picture schema etc.
