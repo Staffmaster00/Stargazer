@@ -1,10 +1,10 @@
 'use strict';
 //TODO: find one and find user one
-let db = require('../mongo/mongoose'); //connection to mongo happens inside this folder.
+let db = require('../mongo/mongoose');
 require('../models/photo.js');
 
 module.exports.fetchPhotos = (req, res, next) => {
-  db.Photo.find({}).limit(20)
+  Photo.find({}).limit(20)
     .then((photos) => {
       res.status(200).json(photos);
     })

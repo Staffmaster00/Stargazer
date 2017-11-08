@@ -7,9 +7,16 @@ const User = mongoose.model('User', {
   name: {
     type: String,
     required: true,
-    match: [/^[a-zA-Z]+$/, 'your name may only contain letters'] //custom error mesg for validation! Cool!
+    match: [/^[a-zA-Z]+$/, 'your name may only contain letters'],
+    // unique: true
+    //I know usernames usually have numbers I did this to demonstrate I know some regex
   },
-  hashword: {
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
     type: String
   }
 });

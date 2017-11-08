@@ -1,6 +1,6 @@
 'use strict';
 //project factory = image upload.
-app.controller("UploadController", function($rootScope, $scope, $window, FBCreds, MongoFactory, UserFactory) {
+app.controller("UploadController", function($scope, $window, FBCreds, MongoFactory, UserFactory) {
   //take url, push it to an object or array you then save to mongo and use again later to display
   //for each user, may have to drop the array afterward?
   //Create a Firebase Storage reference

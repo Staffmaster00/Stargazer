@@ -3,32 +3,30 @@
 app.factory("MongoFactory", function ($q, $http, FBCreds) {
 //maybe just need the mongo stuff seems like it handles these things.
   let createPhotoObj = (photoUrl, id) => {
+    console.log(`photoObj stuff`, photoUrl, id);//is getting url but not id
     return $q((resolve, reject) => {
-      resolve(
-        photoObj = {
-          url: photoUrl,
-          userId: id
-        })
-        .catch((err) => {
-          reject(err)
+      let photoObj = {
+        url: photoUrl,
+        userId: id
+      };
+      console.log(`photoObj after adding stuff`, photoObj);
+      resolve(photoObj)
       });
-    });
   };
 
+
   let postPhotoObj = (photoUrl, id) => {
-    return $q((resolve, reject) => {
+    console.log(`postPhotoObj ran`, photoUrl, id);
       createPhotoObj(photoUrl, id)
       .then((photoObj) => {
-        $http.post(`some mongo url and such`, angular.toJson(photoObj))
+        $http({
+          method: 'POST',
+          url: `http://localhost:27017/upload`,
+          data: photoObj
+        })
       })
-      .then((submittedPhoto) => {
-        resolve(submittedPhoto);
-      })
-      .catch((err) => {
-        reject(err)
-      });
-    });
   };
+
   let getOne = (url) => {//for when a user clicks on a photo in a list
     return $q((resolve, reject) => {
       $http.get(`${url}`)

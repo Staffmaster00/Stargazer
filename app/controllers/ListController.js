@@ -11,7 +11,7 @@ app.controller("ListController", function($rootScope, $scope, $window, MongoFact
     console.log(`displayList runs`);
     MongoFactory.getList()
     .then((photos)=>{
-      console.log(`photos`, photos);
+      console.log(`photos`, photos);//scope photos
     });
   }
 });

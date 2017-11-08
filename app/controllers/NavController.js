@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("ListController", function ($scope, $window, UserFactory) {
+app.controller("NavController", function ($scope, $window, UserFactory, $location) {
   $scope.toUpload = () => {
     $window.location.href = '#!/upload';
   }
@@ -11,5 +11,6 @@ app.controller("ListController", function ($scope, $window, UserFactory) {
 
   $scope.logout = () => {
     UserFactory.logoutUser()
+    $location.url('/login');
   }
 });
