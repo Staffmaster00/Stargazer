@@ -23,18 +23,14 @@ module.exports.registerUser = (req, res, next) => {
 };
 
 module.exports.loginUser = (req, res, next) => {
-  console.log(`loginUser ran`);
   const username = req.body.name.name;
   const password = req.body.name.password;
-  console.log(`req in loginUser`, username, password);
   return authHelpers.getUser(username)
     .then((response) => {
-      console.log(`response password`, response);
       authHelpers.comparePass(password, response.password);
       return response;
     })
     .then((response) => { 
-      console.log(`response`, response);
       return localAuth.encodeToken(response);
      })
     .then((token) => {
@@ -48,11 +44,5 @@ module.exports.loginUser = (req, res, next) => {
         status: 'error'
       });
     });
-};
-
-module.exports.getUser = (req, res, next) => {
-  res.status(200).json({
-    status: 'success',
-  });
 };
 //will need token, need install bcypt, jwt-simple, momentjs

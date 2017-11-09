@@ -1,17 +1,14 @@
 'use strict';
-//TODO: Allow user to search for their location
-//need to put photos to scope
 
-app.controller("ListController", function($rootScope, $scope, $window, MongoFactory) {
-  $rootScope.toUpload = () => {
-    $window.location.href = '#!/upload';
-  }//rootScope lets us use this for the navbar and anywhere else.
-
+app.controller("ListController", function($rootScope, $scope, $window, PhotoFactory) {
   $rootScope.displayList = () => {
     console.log(`displayList runs`);
-    MongoFactory.getList()
-    .then((photos)=>{
-      console.log(`photos`, photos);//scope photos
-    });
+    $location.url('/list')
+    console.log(`get list ran in display list`)
+    PhotoFactory.getList()
+      .then((photos) => {
+        console.log(`photos in displaylist`, photos);
+        $scope.photos = photos;
+      });
   }
 });

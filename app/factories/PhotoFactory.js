@@ -1,23 +1,22 @@
 'use strict';
 // TODO: Refactor for the Back End
-app.factory("MongoFactory", function ($q, $http, FBCreds) {
+app.factory("PhotoFactory", function ($q, $http, FBCreds) {
 //maybe just need the mongo stuff seems like it handles these things.
-  let createPhotoObj = (photoUrl, id) => {
-    console.log(`photoObj stuff`, photoUrl, id);//is getting url but not id
+  let createPhotoObj = (photoUrl, name) => {
+    console.log(`photoUrl`, photoUrl);
     return $q((resolve, reject) => {
       let photoObj = {
-        url: photoUrl,
-        userId: id
+        reference: photoUrl,
+        userName: name
       };
       console.log(`photoObj after adding stuff`, photoObj);
       resolve(photoObj)
       });
   };
+//take down names and contact info
 
-
-  let postPhotoObj = (photoUrl, id) => {
-    console.log(`postPhotoObj ran`, photoUrl, id);
-      createPhotoObj(photoUrl, id)
+  let postPhotoObj = (photoUrl, name) => {
+      createPhotoObj(photoUrl, name)
       .then((photoObj) => {
         $http({
           method: 'POST',
@@ -34,7 +33,7 @@ app.factory("MongoFactory", function ($q, $http, FBCreds) {
         resolve(list);
       })
       .catch((err) => {
-        console.log("Error in MongoFactory getOne", err);
+        console.log("Error in PhotoFactory getOne", err);
         reject(err);
       });
     });
@@ -42,16 +41,24 @@ app.factory("MongoFactory", function ($q, $http, FBCreds) {
   
   // db.collection.find(<query>).limit(<number>)example for limiting amount returned
   let getList = () => {//for when a user wants to see all photos up to 20
-    console.log(`getList in MongoFactory runs`);
+    console.log(`getList in PhotoFactory runs`);
     return $q((resolve, reject) => {
-      $http.get(`http://localhost:27017/list`)
-        .then((list) => {
-          resolve(list);
-        })
-        .catch((err) => {
-          console.log("Error in MongoFactory getList", err);
-          reject(err);
+      $http({
+        method: "GET",
+        url: "http://localhost:27017/list"
+      })
+      .then((list) => {
+        let photos = [];
+        list.data.forEach((photoObj)=>{
+          photos.push(photoObj.reference)
         });
+        console.log(`photos in getlist`, photos);
+        resolve(photos);
+      })
+      .catch((err) => {
+        console.log("Error in PhotoFactory getList", err);
+        reject(err);
+      });
     });
   };
 
@@ -62,7 +69,7 @@ app.factory("MongoFactory", function ($q, $http, FBCreds) {
           resolve(list);
         })
         .catch((err) => {
-          console.log("Error in MongoFactory getOne", err);
+          console.log("Error in PhotoFactory getOne", err);
           reject(err);
         });
     });

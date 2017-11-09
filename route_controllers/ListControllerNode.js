@@ -1,10 +1,10 @@
 'use strict';
 //TODO: find one and find user one
 let db = require('../mongo/mongoose');
-require('../models/photo.js');
+let Photo = require('../models/photo.js');
 
 module.exports.fetchPhotos = (req, res, next) => {
-  Photo.find({}).limit(20)
+  Photo.find({})
     .then((photos) => {
       res.status(200).json(photos);
     })
@@ -14,7 +14,7 @@ module.exports.fetchPhotos = (req, res, next) => {
 };
 
 module.exports.fetchOnePhoto = ({params: id}, res, next) => {
-  db.Photo.find({id})
+  Photo.find({id})
     .then((photo) => {
       res.status(200).json(photo)
     })
@@ -22,7 +22,7 @@ module.exports.fetchOnePhoto = ({params: id}, res, next) => {
 };
 
 module.exports.fetchUserPhoto = ({params: id}, res, next) => {
-  db.Photo.find({id})
+  Photo.find({id})
     .then((userPhoto) => {
       res.status(200).json(userPhoto)
     })

@@ -1,6 +1,7 @@
 'use strict';
-//Use scope to create a picture of the day for the login page.
+
 app.controller("UserController", function($scope, $window, UserFactory, APIFactory, $location) { 
+  //Use scope to create a picture of the day for the login page.
   APIFactory.getPOD()
   .then((url)=>{
     $scope.bg = url;

@@ -12,8 +12,16 @@ app.factory("UserFactory", function($q, $http, FBURL, FBCreds) {
 
     let currentUser = null;
 
-    let getUser = () => {
-        return currentUser;
+    let getUser = () => {//get user id based on name or email.
+      return $http({
+        method: "GET",
+        url: "http://localhost:27017/user"        
+      })
+      .then((users)=>{
+        if (localStorage.token === users.token){
+          currentUser = users._id
+        }
+      })
     };
 
     let ensureAuthenticated = (token) => {
