@@ -1,18 +1,30 @@
 <img class="pic" src={{bg}} alt="Nasa picture of the day"> 
+<div class="brand">
+  <div class="container">
+    <h2>Stargazer</h2>
+  </div>
+</div>
 <section class="user-form">
   <div class="jumbotron">
-    <div class="container">
-      <h1>Login or Register</h1>
-      <div>
-        Email: <input type="email" ng-model="account.email">
+    <div class="container" "jumbotron-content">
+      <div class="input-group" "input-group-sm">
+        <span class="input-group-addon" id="basic-addon1">😊</span>
+        <input type="text" ng-model="account.name" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
       </div>
-      <div>
-        Password: <input type="password" ng-model="account.password">
+      <div class="input-group" "input-group-sm">
+        <span class="input-group-addon" id="basic-addon2">📧</span>
+        <input type="email" ng-model="account.email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
       </div>
-      <div>
-        <button class="btn btn-info" ng-click="login()">Log in</button>
-        <button class="btn btn-default" ng-click="register()">Register</button>
+      <div class="input-group" "input-group-sm">
+        <span class="input-group-addon" id="basic-addon3">🔒</span>
+        <input type="password" ng-model="account.password" placeholder="Password"  aria-label="Password" aria-describedby="basic-addon3">
+      </div>
+      <span class="lbtn">
+        <button class="btn libtn" ng-click="login()">Log in</button>
+        <button class="btn btn-info" ng-click="register()">Register</button>
       </div>
     </div>
-  </div> 
-</section>
+  </section>
+</div> 
+  <p class="img-credit">Image Dynamically Provided by <a href="{{bg}}">Nasa's Picture of the Day</a></p>
+</div>

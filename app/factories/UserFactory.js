@@ -12,57 +12,58 @@ app.factory("UserFactory", function($q, $http, FBURL, FBCreds) {
 
     let currentUser = null;
 
-    let isAuthenticated = function() {
-        console.log("isAuthenticated called");
-        return new Promise((resolve, reject) => {
-            console.log("firing onAuthStateChanged");
-            firebase.auth().onAuthStateChanged(function(user) {
-                console.log("onAuthStateChanged finished");
-                if (user) {
-                    console.log("user", user);
-                    currentUser = user.uid;
-                    resolve(true);
-                } else {
-                    resolve(false);
-                }
-            });
-        });
+    let getUser = () => {//get user id based on name or email.
+      return $http({
+        method: "GET",
+        url: "http://localhost:27017/user"        
+      })
+      .then((users)=>{
+        if (localStorage.token === users.token){
+          currentUser = users._id
+        }
+      })
     };
 
-    let getUser = () => {
-        return currentUser;
-    };
+    let ensureAuthenticated = (token) => {
+      return $http({
+        method: 'GET',
+        url: 'http://localhost:27017/user',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }
+      })
+    }
 
-    let createUser = (userObj) => {
-        return firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password)
-            .catch((err) => {
-                console.log("error creating user", err.message);
-            });
-    };
+    let createUser = (name, email, password) => {
+      console.log(`createUser ran`);
+        return $http({
+          method: 'POST',
+          url: 'http://localhost:27017/register',
+          data: {name, email, password},
+          headers: {'Content-Type': 'application/json'}
+        })
+    }
 
-    let loginUser = (userObj) => {
-        return $q((resolve, reject) => {
-            firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.password)
-                .then((user) => {
-                    // have to set the current user here because the controllers that call `getUser`
-                    // ( todo-controller, for example) are loading before the `onAuthStateChanged`
-                    // listener was kicking in and setting the user value
-                    currentUser = user.uid;
-                    resolve(user);
-                })
-                .catch((err) => {
-                    console.log("error loggin in", err.message);
-                });
-        });
-    };
+    let loginUser = (name, email, password) => {
+        return $http({
+          method: 'POST',
+          url: 'http://localhost:27017/login',
+          data: { name, email, password },
+          headers: { 'Content-Type': 'application/json' }
+        })
+    }
+    
 
     let logoutUser = () => {
-        return firebase.auth().signOut()
-            .catch((err) => {
-                console.log("error loggin' out, man", err.message);
-            });
+        localStorage.token = ""
+        localStorage.name = ""
     };
 
+    // authenticateRoute () => {
+    //   if (localStorage.isLoggedIn === 'true'){
+    //     return true;
+    //   } else {
+    //     return $q.reject('Not Authenticated')
+    //   }
+    // }
 
-    return { isAuthenticated, getUser, createUser, loginUser, logoutUser };
+    return { ensureAuthenticated, getUser, createUser, loginUser, logoutUser };
 });

@@ -1,15 +1,14 @@
 'use strict';
-//TODO: Allow user to search for their location
 
-
-app.controller("ListController", function($rootScope, $scope, $window, FBFactory) {
-  $rootScope.toUpload = () => {
-    $window.location.href = '#!/upload';
-  }
-
-  $scope.displayList = () => {
+app.controller("ListController", function($rootScope, $scope, $window, PhotoFactory) {
+  $rootScope.displayList = () => {
     console.log(`displayList runs`);
-    FBFactory.getList()
-    // .then(()=>{});
+    $location.url('/list')
+    console.log(`get list ran in display list`)
+    PhotoFactory.getList()
+      .then((photos) => {
+        console.log(`photos in displaylist`, photos);
+        $scope.photos = photos;
+      });
   }
 });

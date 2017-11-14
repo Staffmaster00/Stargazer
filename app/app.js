@@ -1,6 +1,5 @@
 "use strict";
 //https://www.npmjs.com/package/exif allows you to get photo data
-
 let app = angular.module("app", ["ngRoute"])
     .constant("FBURL", "https://stargazer-b6f53.firebaseio.com");
 app.config(($routeProvider) => {

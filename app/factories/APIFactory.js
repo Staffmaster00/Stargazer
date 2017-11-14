@@ -18,5 +18,5 @@ let getPOD = () => {
                 });
         });
     };
-    return {getPOD};
+    return { getPOD };
 });
