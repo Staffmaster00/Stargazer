@@ -24,16 +24,14 @@ https://nodejs.org/en/docs/guides/getting-started-guide/
   7. Navigate to http://localhost:8000/api/v1
   8. You should see your 'Hello World' message.
 
-## Linux
-
-# Install Node.js
+### Install Node.js via package manager
   It is recommended that you install node via your package manager. The rest of the project is exactly the same as Windows and macOS.
   ## For Ubuntu or Debian Linux Users
 
 ```
 sudo apt install nodejs
 ```
-## For Fedora Linux Users (Redhat Linux Users: replace dnf with yum)
+### For Fedora Linux Users (Redhat Linux Users: replace dnf with yum)
 
 ```
 sudo dnf install nodejs
@@ -42,6 +40,7 @@ sudo dnf install nodejs
 ### Review Node Documentation
 
 https://nodejs.org/en/docs/
+
 # NPM
 
 Going hand in hand with Nodejs is npm. This package manager allows us to install the needed third party support that empowers modern applications. You can use ```npm -v``` to check if you have it installed otherwise run ```npm install npm@latest -g``` to update to the latest version. While npm installs with node sometimes npm has a newer version than the one that installs with node.
