@@ -60,25 +60,29 @@ If you have homebrew on macOS it's as simple as running ```brew update``` (to en
 ### Manual Installation
 
 Manually installing is slightly more difficult but if you don't want to use brew first download the latest binaries with ```curl -O https://fastdl.mongodb.org/osx-ssl/mongodb-osx-ssl-x86_64-3.4.10.tgz```. 
+<br/><br/>
 Then extract them from the archive. You can use ```tar -zxvf mongodb-osx-ssl-x86_64-3.4.10.tgz``` for example.
+<br/><br/>
 Next copy the extracted archive to the target directory mongodb using ```mkdir -p mongodb```
 ```cp -R -n mongodb-osx-ssl-x86_64-3.4.10/ mongodb```.
+<br/><br/>
 Next you can check for the binaries location using ```export PATH=<mongodb-install-directory>/bin:$PATH``` in your shell's rc file (eg. /.bashrc) otherwise they may remain in your bin files of the extracted archive. 
+<br/><br/>
 Last, replace mongodb-install-directory with the path to the extracted MongoDB archive.
 
 ## Windows
 
 Please read the mongo docs if you are using windows 7 or XP https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/.
-
+<br/><br/>
 If you are using a later version of windows and don't want to follow that link I'll post what they have here. 
-
+<br/><br/>
 Choose MongoDB for Windows 64-bit runs only on Windows Server 2008 R2, Windows 7 64-bit, and newer versions of Windows. This build takes advantage of recent enhancements to the Windows Platform and cannot operate on older versions of Windows.
-
+<br/><br/>
 Choose MongoDB for Windows 64-bit Legacy runs on Windows Vista, and Windows Server 2008 and does not include recent performance enhancements.
-
+<br/><br/>
 If you are somehow on a computer you don't know which OS is running you can use ```wmic os get caption```
 ```wmic os get osarchitecture``` to get that information.
-
+<br/><br/>
 Next download using this link http://www.mongodb.org/downloads. Additional options exist on MongoDB's site if this does not work for you!
 
 ## Linux
@@ -91,15 +95,25 @@ Recommended
 For the best installation experience, MongoDB provides packages for popular Linux distributions. These packages, which support specific platforms and provide improved performance and TLS/SSL support, are the preferred way to run MongoDB. The following guides detail the installation process for these systems:
 
 Install on Red Hat https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
+<br/><br/>
 Install MongoDB Community Edition on Red Hat Enterprise and related Linux systems using .rpm packages.
+<br/><br/>
 Install on SUSE https://docs.mongodb.com/manual/tutorial/install-mongodb-on-suse/
+<br/><br/>
 Install MongoDB Community Edition on SUSE Linux systems using .rpm packages.
+<br/><br/>
 Install on Amazon https://docs.mongodb.com/manual/tutorial/install-mongodb-on-amazon/
+<br/><br/>
 Install MongoDB Community Edition on Amazon Linux AMI systems using .rpm packages.
+<br/><br/>
 Install on Ubuntu https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+<br/><br/>
 Install MongoDB Community Edition on Ubuntu Linux systems using .deb packages.
+<br/><br/>
 Install on Debian https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
+<br/><br/>
 Install MongoDB Community Edition on Debian systems using .deb packages.
+<br/><br/>
 For systems without supported packages, refer to the Manual Installation tutorial.
 
 ### Manual Installation
@@ -107,13 +121,18 @@ For systems without supported packages, refer to the Manual Installation tutoria
 For Linux systems without supported packages, MongoDB provides a generic Linux release. These versions of MongoDB don’t include TLS/SSL, and may not perform as well as the targeted packages, but are compatible on most contemporary Linux systems. See the following guides for installation:
 
 Install From Tarball https://docs.mongodb.com/manual/tutorial/install-mongodb-on-linux/
+<br/><br/>
 Install MongoDB Community Edition on other Linux systems from MongoDB archives.
 
 # API KEY etc
-I've hidden my firebase information if you'd like to work on this project let me know. If you pull down without this info the login page won't have NASA's picture of the day and you may get errors. You can stop these by commenting out code related to firebase and the API factories. I initialized in UserFactory.js.
+I've hidden my firebase information if you'd like to work on this project let me know. If you pull down without this info the login page won't have NASA's picture of the day and you may get errors. You can stop these by commenting out code related to firebase and the API factories. I initialized firebase in UserFactory.js.
 
 Relevant files:
+<br/><br/>
 APIFactory.js
+<br/><br/>
 UserFactory.js
+<br/><br/>
 app.js
+<br/><br/>
 UserController.js
