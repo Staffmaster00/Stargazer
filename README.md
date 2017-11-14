@@ -48,17 +48,17 @@ Going hand in hand with Nodejs is npm. This package manager allows us to install
 
 After installing npm use ```npm install``` to install the dependencies for this app.
 
-#Mongo
+# Mongo
 
 Again if you missed the alert above mongo no longer supports 32-bit. Assuming you are no using windows 32-bit you can install mongo by going to their website https://docs.mongodb.com/manual/installation/?jmp=footer and following their instructions there or the installation instructions I moved from their site here.
 
 We are using the community version. 
 
-#macOS
+## macOS
 
 If you have homebrew on macOS it's as simple as running ```brew update``` (to ensure the lastest version) then use ```brew install mongodb```.
 
-##Manual Installation
+### Manual Installation
 
 Manually installing is slightly more difficult but if you don't want to use brew first download the latest binaries with ```curl -O https://fastdl.mongodb.org/osx-ssl/mongodb-osx-ssl-x86_64-3.4.10.tgz```. 
 Then extract them from the archive. You can use ```tar -zxvf mongodb-osx-ssl-x86_64-3.4.10.tgz``` for example.
@@ -67,7 +67,7 @@ Next copy the extracted archive to the target directory mongodb using ```mkdir -
 Next you can check for the binaries location using ```export PATH=<mongodb-install-directory>/bin:$PATH``` in your shell's rc file (eg. /.bashrc) otherwise they may remain in your bin files of the extracted archive. 
 Last, replace mongodb-install-directory with the path to the extracted MongoDB archive.
 
-##Windows
+## Windows
 
 Please read the mongo docs if you are using windows 7 or XP https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/.
 
@@ -82,7 +82,7 @@ If you are somehow on a computer you don't know which OS is running you can use 
 
 Next download using this link http://www.mongodb.org/downloads. Additional options exist on MongoDB's site if this does not work for you!
 
-##Linux
+## Linux
 
 I'm hoping to improve my understanding of Linux someday (maybe learn some devOps!) for now I'm going to assume you understand what I'm copying from mongoDB's website. Alternatively you can look at it yourself!
 https://docs.mongodb.com/manual/administration/install-on-linux/
@@ -103,14 +103,14 @@ Install on Debian https://docs.mongodb.com/manual/tutorial/install-mongodb-on-de
 Install MongoDB Community Edition on Debian systems using .deb packages.
 For systems without supported packages, refer to the Manual Installation tutorial.
 
-##Manual Installation
+### Manual Installation
 
 For Linux systems without supported packages, MongoDB provides a generic Linux release. These versions of MongoDB don’t include TLS/SSL, and may not perform as well as the targeted packages, but are compatible on most contemporary Linux systems. See the following guides for installation:
 
 Install From Tarball https://docs.mongodb.com/manual/tutorial/install-mongodb-on-linux/
 Install MongoDB Community Edition on other Linux systems from MongoDB archives.
 
-#API KEY etc
+# API KEY etc
 I've hidden my firebase information if you'd like to work on this project let me know. If you pull down without this info the login page won't have NASA's picture of the day and you may get errors. You can stop these by commenting out code related to firebase and the API factories. I initialized in UserFactory.js.
 
 Relevant files:
