@@ -1,7 +1,7 @@
 {
   "name": "stargazer",
-  "version": "0.1.0",
-  "description": "Allows users to share photos of space locally",
+  "version": "0.1.1",
+  "description": "Allows users to share photos of astronomy",
   "license": "ISC",
   "author": "Sam Staff",
   "keywords": [],
@@ -38,8 +38,5 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sequelize": "^4.13.5"
-  },
-  "devDependencies": {
-    "webpack": "^3.8.1"
   }
 }
