@@ -94,23 +94,23 @@ Recommended
 
 For the best installation experience, MongoDB provides packages for popular Linux distributions. These packages, which support specific platforms and provide improved performance and TLS/SSL support, are the preferred way to run MongoDB. The following guides detail the installation process for these systems:
 
-Install on Red Hat https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
+1. Install on Red Hat https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
 <br/><br/>
 Install MongoDB Community Edition on Red Hat Enterprise and related Linux systems using .rpm packages.
 <br/><br/>
-Install on SUSE https://docs.mongodb.com/manual/tutorial/install-mongodb-on-suse/
+2. Install on SUSE https://docs.mongodb.com/manual/tutorial/install-mongodb-on-suse/
 <br/><br/>
 Install MongoDB Community Edition on SUSE Linux systems using .rpm packages.
 <br/><br/>
-Install on Amazon https://docs.mongodb.com/manual/tutorial/install-mongodb-on-amazon/
+3. Install on Amazon https://docs.mongodb.com/manual/tutorial/install-mongodb-on-amazon/
 <br/><br/>
 Install MongoDB Community Edition on Amazon Linux AMI systems using .rpm packages.
 <br/><br/>
-Install on Ubuntu https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+4. Install on Ubuntu https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 <br/><br/>
 Install MongoDB Community Edition on Ubuntu Linux systems using .deb packages.
 <br/><br/>
-Install on Debian https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
+5. Install on Debian https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
 <br/><br/>
 Install MongoDB Community Edition on Debian systems using .deb packages.
 <br/><br/>
@@ -120,7 +120,7 @@ For systems without supported packages, refer to the Manual Installation tutoria
 
 For Linux systems without supported packages, MongoDB provides a generic Linux release. These versions of MongoDB don’t include TLS/SSL, and may not perform as well as the targeted packages, but are compatible on most contemporary Linux systems. See the following guides for installation:
 
-Install From Tarball https://docs.mongodb.com/manual/tutorial/install-mongodb-on-linux/
+6. Install From Tarball https://docs.mongodb.com/manual/tutorial/install-mongodb-on-linux/
 <br/><br/>
 Install MongoDB Community Edition on other Linux systems from MongoDB archives.
 
