@@ -26,11 +26,14 @@ app.factory("PhotoFactory", function ($q, $http, FBCreds) {
       })
   };
 
-  let getOne = (url) => {//for when a user clicks on a photo in a list
+  let getOne = (id, url) => {//for when a user clicks on a photo in a list
     return $q((resolve, reject) => {
-      $http.get(`${url}`)
-      .then((list) => {
-        resolve(list);
+      $http({
+        method: 'GET',
+        url: `http://localhost:27017/list/${id}`
+      })
+      .then((photo) => {
+        resolve(photo);
       })
       .catch((err) => {
         console.log("Error in PhotoFactory getOne", err);
@@ -62,18 +65,37 @@ app.factory("PhotoFactory", function ($q, $http, FBCreds) {
     });
   };
 
-  let getUserPhoto = (url, id) => {//for when a user wants to see their photos
+  let getUserPhoto = (url, id) => {//for when a user wants to see one of their photos
     return $q((resolve, reject) => {
-      $http.get(`${url}`)//need user id for individual photos
-        .then((list) => {
-          resolve(list);
-        })
-        .catch((err) => {
-          console.log("Error in PhotoFactory getOne", err);
-          reject(err);
-        });
+      $http({
+        method: 'GET',
+        url: `http://localhost27017/list/user/${id}`,
+      })//need user id for individual photos
+      .then((photo) => {
+        resolve(photo);
+      })
+      .catch((err) => {
+        console.log("Error in PhotoFactory getUserPhoto", err);
+        reject(err);
+      });
     });
   };
 
-  return { postPhotoObj, getOne, getList, getUserPhoto };
+  let getUserPhotos = (userid) => {//for when a user wants to see all of their photos
+    return $q((resolve, reject) => {
+      $http({
+        method: 'GET',
+        url: `http://localhost27017/list/user/${userid}`
+      })
+      .then((list) => {
+        resolve(list);
+      })
+      .catch((err) => {
+        console.log(`error in photofactory getuserphotos`, err);
+        reject(err);
+      });
+    });
+  };
+
+  return { postPhotoObj, getOne, getList, getUserPhoto, getUserPhotos };
 });

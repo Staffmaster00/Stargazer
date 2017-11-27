@@ -10,6 +10,8 @@ ALERT: This app uses mongo for backend which no longer supports 32-bit x86 platf
 
 [Visual Studio Code](https://code.visualstudio.com/download) is Microsoft's cross-platform editor that we'll be using during orientation for writing JavaScript and building Node applications. Make sure you add the [JavaScript extension](https://code.visualstudio.com/Docs/languages/javascript) immediately after installation completes.
 
+Alternatively use the text editor of your choice.
+
 ## Install Node.js
 
 https://nodejs.org/en/docs/guides/getting-started-guide/
