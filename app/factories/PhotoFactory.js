@@ -26,7 +26,7 @@ app.factory("PhotoFactory", function ($q, $http, FBCreds) {
       })
   };
 
-  let getOne = (id, url) => {//for when a user clicks on a photo in a list
+  let getOne = (id) => {//for when a user clicks on a photo in a list
     return $q((resolve, reject) => {
       $http({
         method: 'GET',
@@ -42,8 +42,7 @@ app.factory("PhotoFactory", function ($q, $http, FBCreds) {
     });
   };
   
-  // db.collection.find(<query>).limit(<number>)example for limiting amount returned
-  let getList = () => {//for when a user wants to see all photos up to 20
+  let getList = () => {//for when a user wants to see all photos up to 20 when I get mongoose's version of limits.
     console.log(`getList in PhotoFactory runs`);
     return $q((resolve, reject) => {
       $http({
@@ -65,7 +64,7 @@ app.factory("PhotoFactory", function ($q, $http, FBCreds) {
     });
   };
 
-  let getUserPhoto = (url, id) => {//for when a user wants to see one of their photos
+  let getUserPhoto = (id) => {//for when a user wants to see one of their photos
     return $q((resolve, reject) => {
       $http({
         method: 'GET',
