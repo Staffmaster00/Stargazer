@@ -8,6 +8,7 @@ const { fetchPhotos, fetchOnePhoto, fetchUserPhoto } = require('../route_control
 
 router.get('/list', fetchPhotos);
 router.get('/list/:id', fetchOnePhoto);
+router.get('/list/user/list', fetchUserPhotos);
 router.get('/list/user/:id', fetchUserPhoto);
 
 

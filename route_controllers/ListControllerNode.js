@@ -30,3 +30,13 @@ module.exports.fetchUserPhoto = ({params: id}, res, next) => {
       next(err)
     });
 };
+
+module.exports.fetchUserPhoto = ({params: id}, res, next) => {
+  Photo.find({id})//TODO: needs to be by userid
+    .then((userPhoto) => {
+      res.status(200).json(userPhoto)
+    })
+    .catch((err) => {
+      next(err)
+    });
+};
